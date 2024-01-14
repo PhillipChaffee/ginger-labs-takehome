@@ -21,10 +21,12 @@ The API should also support batch requests for new jobs (i.e., you should be abl
   - [ ] retrieving the results of a completed job.
   - [ ] deleting a job
 - [ ] DB service
-  - [ ] createJob(urls)
-  - [ ] getJob(id)
-  - [ ] createResult(jobId, result)
-  - [ ] deleteJob(jobId)
+  - [x] createJob(urls)
+  - [x] getJob(id)
+  - [x] deleteJob(jobId)
+  - [x] createResult(jobId, result)
+  - [x] getResult(jobId, result)
+  - [x] deleteResult(jobId, result)
 - [ ] Job runner service
   - [ ] defineJob
   - [ ] runJobs
