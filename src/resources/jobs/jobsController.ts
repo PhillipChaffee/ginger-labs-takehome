@@ -14,8 +14,13 @@ export class JobsController extends Controller {
   @Get("{jobId}")
   public async getJob(
     @Path() jobId: number
-  ): Promise<Job> {
-    const job = await this.dbClient.job.findUniqueOrThrow({where: {id: jobId}});
+  ): Promise<Job | void> {
+    const job = await this.dbClient.job.findUnique({where: {id: jobId}});
+    if (!job) {
+      this.setStatus(404);
+      return;
+    }
+
     return mapJobs([job])[0];
   }
 
@@ -24,8 +29,6 @@ export class JobsController extends Controller {
   public async createJobs(
     @Body() requestBody: { urls: string[] }
   ): Promise<Job[]> {
-    this.setStatus(201);
-
     const duplicateJobs = await this.dbClient.job.findMany({
       where: {
         url: {in: requestBody.urls},
@@ -45,6 +48,7 @@ export class JobsController extends Controller {
       await this.jobQueue.add(job, {jobId: redisId(job)});
     }
 
+    this.setStatus(201);
     return jobs;
   }
 
@@ -53,9 +57,8 @@ export class JobsController extends Controller {
   public async deleteJob(
     @Path() jobId: number
   ): Promise<void> {
-    this.setStatus(204);
     const dbJob = await this.dbClient.job.findUnique({where: {id: jobId}});
-    if(!dbJob) {
+    if (!dbJob) {
       this.setStatus(404);
       return;
     }
@@ -65,6 +68,7 @@ export class JobsController extends Controller {
     await this.dbClient.result.delete({where: {jobId}});
     await this.dbClient.job.delete({where: {id: jobId}});
 
+    this.setStatus(204);
     return;
   }
 }

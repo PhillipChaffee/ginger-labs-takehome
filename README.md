@@ -32,14 +32,7 @@ The API should also support batch requests for new jobs (i.e., you should be abl
   - [x] Define processor
   - [x] Add jobs to queue
 - [x] Basic Error handling
-- [ ] Check indexes
-- [ ] Better route specific error handling / non success HTTP responses
-- [ ] Add how to run to readme
-- [ ] Separate the job runner code from the service code, so they can scale independently
-- [ ] Switch to GraphQL
-- [ ] Check for stuck jobs
-- [ ] Docker compose for spinning up local pg and redis
-- [ ] Think about implementing application caching
+- [x] Better route specific error handling / non success HTTP responses
 
 # Questions
 
