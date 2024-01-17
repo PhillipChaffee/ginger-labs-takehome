@@ -133,3 +133,6 @@ build
 .yarn/install-state.gz
 .pnp.*
 
+# JetBrains
+.idea
+

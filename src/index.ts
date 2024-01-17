@@ -1,4 +1,4 @@
-import {RegisterRoutes} from "./build/routes";
+import {RegisterRoutes} from "../build/routes";
 import express, {
   Response as ExResponse,
   Request as ExRequest,
@@ -8,6 +8,7 @@ import express, {
 } from "express";
 import {ValidateError} from "tsoa";
 import swaggerUi from "swagger-ui-express";
+import registerJobsRunner from "./resources/jobs/jobsRunner";
 
 export const app = express();
 
@@ -20,12 +21,14 @@ app.use(json());
 
 RegisterRoutes(app);
 
+// Swagger UI
 app.use("/docs", swaggerUi.serve, async (_req: ExRequest, res: ExResponse) => {
   return res.send(
-    swaggerUi.generateHTML(await import("./build/swagger.json"))
+    swaggerUi.generateHTML(await import("../build/swagger.json"))
   );
 });
 
+// Generic error handling to return 500 on any uncaught error
 app.use(function errorHandler(
   err: unknown,
   req: ExRequest,
@@ -47,6 +50,9 @@ app.use(function errorHandler(
 
   next();
 });
+
+// Register all job queues
+registerJobsRunner();
 
 const port = process.env.PORT || 3000;
 
