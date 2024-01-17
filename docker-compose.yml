@@ -14,5 +14,3 @@ services:
     ports:
       - '6379:63791'
     command: redis-server --save 20 1 --loglevel warning
-    volumes:
-      - cache:/data

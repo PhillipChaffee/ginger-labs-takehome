@@ -1,3 +1,12 @@
+# Running locally
+
+1. Create a `.env` file in the root dir with the following entry `DATABASE_URL="postgresql://postgres@localhost:5432/ginger?schema=public"`
+2. `yarn`
+3. Make sure you have docker and docker-compose installed and docker is running
+4. `docker-compose up`
+5. `npm run build`
+6. `npm run dev`
+
 # Description
 Create a service containing a job queue. Each job will consist of fetching data from a URL and storing the results.
 
