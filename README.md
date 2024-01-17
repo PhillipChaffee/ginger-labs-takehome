@@ -6,7 +6,8 @@
 4. `docker-compose up`
 5. `npm run build`
 6. `npm run dbinit`
-6. `npm run dev`
+7. `npm run dev`
+8. Navigate to `http://localhost:3000/docs/`
 
 # Description
 Create a service containing a job queue. Each job will consist of fetching data from a URL and storing the results.
