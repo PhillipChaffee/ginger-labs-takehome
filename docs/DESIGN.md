@@ -12,7 +12,7 @@
     * Special system requirements such as multi-threading, read or write oriented.
 
 2) **High level architecture design (Abstract design)**
-  ![System Design Image](https://pasteboard.co/VdwShXyxgApG.jpg)
+  ![System Design Image](./design.jpeg)
 
 3) **Component Design**
 * Component + specific **APIs** required for each of them.
