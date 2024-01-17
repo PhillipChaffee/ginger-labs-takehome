@@ -44,6 +44,7 @@ The API should also support batch requests for new jobs (i.e., you should be abl
   - [x] Add jobs to queue
 - [x] Basic Error handling
 - [x] Better route specific error handling / non success HTTP responses
+- [x] Add how to run to readme
 
 # Questions
 
@@ -67,7 +68,6 @@ The API should also support batch requests for new jobs (i.e., you should be abl
 
 # Future Todos
 - [ ] Check indexes
-- [ ] Add how to run to readme
 - [ ] Separate the job runner code from the service code, so they can scale independently
 - [ ] Switch to GraphQL
 - [ ] Check for stuck jobs
