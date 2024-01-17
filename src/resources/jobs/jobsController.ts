@@ -8,7 +8,7 @@ import {hoursAgo} from "../../utils/time";
 export class JobsController extends Controller {
 
   private dbClient = db();
-  private jobQueue: Bull.Queue<Job> = new Bull("jobs");
+  private jobQueue: Bull.Queue<Job> = new Bull("jobs", "redis://127.0.0.1:63791");
 
   @SuccessResponse("200")
   @Get("{jobId}")

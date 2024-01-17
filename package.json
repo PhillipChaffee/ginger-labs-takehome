@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "tsoa spec-and-routes && tsc",
+    "dbinit": "npx prisma migrate dev --name init",
     "start": "node build/src/index.js"
   },
   "dependencies": {

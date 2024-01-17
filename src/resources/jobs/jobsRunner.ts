@@ -4,7 +4,7 @@ import {Job} from "./job";
 import Bull from "bull";
 
 const register = (): void => {
-  const jobQueue: Bull.Queue<Job> = new Bull("jobs");
+  const jobQueue: Bull.Queue<Job> = new Bull("jobs", "redis://127.0.0.1:63791");
 
   const dbClient = db();
 
