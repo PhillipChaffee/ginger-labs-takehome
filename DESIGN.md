@@ -49,7 +49,7 @@
         model Job {
               id     Int     @id @default(autoincrement())
               url    String  @db.VarChar(3000)
-              status Status  @default(IN_PROGRESS)
+              status JobStatus  @default(IN_PROGRESS)
               result Result?
 
               @@index([url])
@@ -61,7 +61,7 @@
             jobId  Int     @unique
         }
 
-        enum Status {
+        enum JobStatus {
             IN_PROGRESS
             COMPLETE
         }

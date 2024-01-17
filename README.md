@@ -15,23 +15,31 @@ The API should also support batch requests for new jobs (i.e., you should be abl
 
 # Todo
 
-- [ ] Endpoints
-  - [ ] adding a new job (this should take the target URL as an argument & support batch)
-  - [ ] checking the status of an existing job
-  - [ ] retrieving the results of a completed job.
-  - [ ] deleting a job
-- [ ] DB service
+- [x] Endpoints
+  - [x] adding a new job (this should take the target URL as an argument & support batch)
+  - [x] checking the status of an existing job
+  - [x] retrieving the results of a completed job.
+  - [x] deleting a job
+- [x] DB service
   - [x] createJob(urls)
   - [x] getJob(id)
   - [x] deleteJob(jobId)
   - [x] createResult(jobId, result)
   - [x] getResult(jobId, result)
   - [x] deleteResult(jobId, result)
-- [ ] Job runner service
-  - [ ] defineJob
-  - [ ] runJobs
-- [ ] Error handling
+- [x] Job Queue Service
+  - [x] Define queue
+  - [x] Define processor
+  - [x] Add jobs to queue
+- [x] Basic Error handling
+- [ ] Check indexes
+- [ ] Better route specific error handling / non success HTTP responses
+- [ ] Add how to run to readme
 - [ ] Separate the job runner code from the service code, so they can scale independently
+- [ ] Switch to GraphQL
+- [ ] Check for stuck jobs
+- [ ] Docker compose for spinning up local pg and redis
+- [ ] Think about implementing application caching
 
 # Questions
 
@@ -45,7 +53,6 @@ The API should also support batch requests for new jobs (i.e., you should be abl
   - Yes.
 - Is there any upper limit on how many times a single URL can be submitted/processed?
   - Nope
-- Should I implement the job runner code?
 - What happens if a job is already running / in memory and is deleted?
 - How many requests/second will this service get?
 - Is this read or write oriented? Will more jobs be created or more resutls read?
