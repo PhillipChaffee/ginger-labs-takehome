@@ -55,3 +55,12 @@ The API should also support batch requests for new jobs (i.e., you should be abl
 - How should the result data be structed? Will it all be the same type? Should I store it as JSON or normalize it bc it will all be the same type?
 
 # Future Todos
+- [ ] Check indexes
+- [ ] Add how to run to readme
+- [ ] Separate the job runner code from the service code, so they can scale independently
+- [ ] Switch to GraphQL
+- [ ] Check for stuck jobs
+- [ ] Docker compose for spinning up local pg and redis
+- [ ] Think about implementing application caching
+- [ ] Add request validation library and invalid request error responses
+- [ ] Messaging about duplicate urls that weren't added as jobs
